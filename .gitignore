@@ -1,5 +1,6 @@
 *.binaryfile
 *.csv
 *.npz
+*.npy
 *.7z
 *.zip

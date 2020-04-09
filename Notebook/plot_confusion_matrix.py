@@ -11,7 +11,7 @@ import numpy as np
 def plot_confusion_matrix(test_y,pred_y,class_names,normalize=False):
 
     cm = confusion_matrix(test_y,pred_y)
-    classes = class_names[unique_labels(test_y,pred_y)]
+    # classes = class_names[unique_labels(test_y,pred_y)]
     if normalize:
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
     fig, ax = plt.subplots()
@@ -19,8 +19,8 @@ def plot_confusion_matrix(test_y,pred_y,class_names,normalize=False):
     ax.figure.colorbar(im, ax=ax)
     ax.set(xticks=np.arange(cm.shape[1]),
            yticks=np.arange(cm.shape[0]),
-           xticklabels=classes,
-           yticklabels=classes,
+           xticklabels=class_names,
+           yticklabels=class_names,
            ylabel='True label\n',
            xlabel='\nPredicted label')
     fmt = '.2f' if normalize else 'd'
@@ -30,6 +30,7 @@ def plot_confusion_matrix(test_y,pred_y,class_names,normalize=False):
                     i,
                     format(cm[i, j], fmt),
                     ha="center",
-                    va="center")
+                    va="center",
+                    color="red", fontsize=16)
     fig.tight_layout()
     return ax

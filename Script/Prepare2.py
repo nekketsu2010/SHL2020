@@ -22,15 +22,14 @@ def calGlobalAcc(accels, gravities, geomagnetics):
     return globalValues
 
 argv = sys.argv[1]
-# path = '../Data/test/' + argv + '/'
-path = 'train/Hand/'
-with open(path + "Acc_x.txt") as f:
+path = '../Data/Raw/validation/' + argv + '/'
+with open(path + "LAcc_x.txt") as f:
 	acc_x = f.readlines()
 print("ok")
-with open(path + "Acc_y.txt") as f:
+with open(path + "LAcc_y.txt") as f:
 	acc_y = f.readlines()
 print("ok")
-with open(path + "Acc_z.txt") as f:
+with open(path + "LAcc_z.txt") as f:
 	acc_z = f.readlines()
 print("ok")
 with open(path + "Gra_x.txt") as f:
@@ -88,14 +87,14 @@ for acc_x_s, acc_y_s, acc_z_s, gra_x_s, gra_y_s, gra_z_s, mag_x_s, mag_y_s, mag_
     i += 1
     print(str(i) + "終わった")
 for x in GloAcc_x:
-    with open(path + "Glo_Acc_x.txt", "a") as f:
+    with open(path + "Glo_LAcc_x.txt", "a") as f:
         f.write(x + "\n")
 print("xできた")
 for y in GloAcc_y:
-    with open(path + "Glo_Acc_y.txt", "a") as f:
+    with open(path + "Glo_LAcc_y.txt", "a") as f:
         f.write(y + "\n")
 print("yできた")
 for z in GloAcc_z:
-    with open(path + "Glo_Acc_z.txt", "a") as f:
+    with open(path + "Glo_LAcc_z.txt", "a") as f:
         f.write(z + "\n")
 print("zできた")

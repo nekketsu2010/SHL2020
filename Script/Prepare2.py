@@ -22,7 +22,7 @@ def calGlobalAcc(accels, gravities, geomagnetics):
     return globalValues
 
 argv = sys.argv[1]
-path = '../Data/Raw/validation/' + argv + '/'
+path = '../Data/Raw/test/'
 with open(path + "LAcc_x.txt") as f:
 	acc_x = f.readlines()
 print("ok")

@@ -1,21 +1,35 @@
+import math
 import numpy as np
 import sys
 from tqdm import tqdm
 
 def calcGloAcc(x, y, z, ori_w, ori_x, ori_y, ori_z):
-    rotation_matrix = np.zeros((3, 3))
-    rotation_matrix[0, 0] = 1 - 2 * (np.square(ori_y) + np.square(ori_z))
-    rotation_matrix[0, 1] = 2 * (ori_x * ori_y - ori_w * ori_z)
-    rotation_matrix[0, 2] = 2 * (ori_x * ori_z + ori_w * ori_y)
-    rotation_matrix[1, 0] = 2 * (ori_x * ori_y + ori_w * ori_z)
-    rotation_matrix[1, 1] = 1 - 2 * (np.square(ori_x) + np.square(ori_z))
-    rotation_matrix[1, 2] = 2 * (ori_y * ori_z - ori_w * ori_x)
-    rotation_matrix[2, 0] = 2 * (ori_x * ori_z - ori_w * ori_y)
-    rotation_matrix[2, 1] = 2 * (ori_y * ori_z + ori_w * ori_x)
-    rotation_matrix[2, 2] = 1 - 2 * (np.square(ori_x) + np.square(ori_y))
+    pitch = 1 - 2 * (ori_x * ori_x + ori_y * ori_y)
+    yaw = 1 - 2 * (ori_y * ori_y + ori_z * ori_z)
+    if pitch == 0:
+        pitch = sys.float_info.epsilon
+    if yaw == 0:
+        yaw = sys.float_info.epsilon
+
+    pitch = math.atan((2 * (ori_w * ori_x + ori_y * ori_z)) / pitch) #θ
+
+    roll = 2 * (ori_w * ori_y - ori_z * ori_x)
+    if roll > 1:
+        roll = 1
+    elif roll < -1:
+        roll = -1
+    roll = math.asin(roll) #φ
+
+    yaw = math.atan((2 * (ori_w * ori_z + ori_x * ori_y)) / yaw) #ψ
+
+    R1 = np.array([[math.cos(pitch), 0, math.sin(pitch)], [0, 1, 0], [-math.sin(pitch), 0, math.cos(pitch)]])
+    R2 = np.array([[1, 0, 0], [0, math.cos(roll), -math.sin(roll)], [0, math.sin(roll), math.cos(roll)]])
+    R3 = np.array([[math.cos(yaw), -math.sin(yaw), 0], [math.sin(yaw), math.cos(yaw), 0], [0, 0, 1]])
 
     sensor = np.array([x, y, z]).T
-    result = np.dot(rotation_matrix, sensor).T
+    result = np.dot(R3, R2)
+    result = np.dot(result, R1)
+    result = np.dot(result, sensor).T
     return result.tolist()
 
 
@@ -77,14 +91,14 @@ for acc_x_s, acc_y_s, acc_z_s, ori_w_s, ori_x_s, ori_y_s, ori_z_s  in tqdm(zip(a
     GloAcc_z.append(GloAcc_z_s)
 
 for x in tqdm(GloAcc_x):
-    with open(path + "Glo_" + sensor_name + "_x_ver2.txt", "a") as f:
+    with open(path + "Glo_" + sensor_name + "_x_ver3.txt", "a") as f:
         f.write(x + "\n")
 print("xできた")
 for y in tqdm(GloAcc_y):
-    with open(path + "Glo_" + sensor_name + "_y_ver2.txt", "a") as f:
+    with open(path + "Glo_" + sensor_name + "_y_ver3.txt", "a") as f:
         f.write(y + "\n")
 print("yできた")
 for z in tqdm(GloAcc_z):
-    with open(path + "Glo_" + sensor_name + "_z_ver2.txt", "a") as f:
+    with open(path + "Glo_" + sensor_name + "_z_ver3.txt", "a") as f:
         f.write(z + "\n")
 print("zできた")

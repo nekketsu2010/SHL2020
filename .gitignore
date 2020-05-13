@@ -5,3 +5,6 @@
 *.npy
 *.7z
 *.zip
+*.avi
+*.mat
+*.kml

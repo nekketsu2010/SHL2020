@@ -21,7 +21,7 @@ def calcGloAcc(x, y, z, ori_w, ori_x, ori_y, ori_z):
 
 argv = sys.argv[1]
 path = '../Data/Raw/' + argv  + "/"
-sensor_name = "Mag"
+sensor_name = sys.argv[2]
 with open(path + sensor_name + "_x.txt") as f:
 	acc_x = f.readlines()
 print("ok")

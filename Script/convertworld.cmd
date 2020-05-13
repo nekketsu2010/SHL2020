@@ -1,9 +1,54 @@
-python ConvertWorld_ver3.py train/Bag
-python ConvertWorld_ver3.py train/Hips
-python ConvertWorld_ver3.py train/Torso
-python ConvertWorld_ver3.py train/Hand
-python ConvertWorld_ver3.py validation/Bag
-python ConvertWorld_ver3.py validation/Hips
-python ConvertWorld_ver3.py validation/Torso
-python ConvertWorld_ver3.py validation/Hand
-python ConvertWorld_ver3.py test
+python ConvertWorld_ver2.py train/Bag Acc
+python ConvertWorld_ver2.py train/Hips Acc
+python ConvertWorld_ver2.py train/Torso Acc
+python ConvertWorld_ver2.py train/Hand Acc
+python ConvertWorld_ver2.py validation/Bag Acc
+python ConvertWorld_ver2.py validation/Hips Acc
+python ConvertWorld_ver2.py validation/Torso Acc
+python ConvertWorld_ver2.py validation/Hand Acc
+python ConvertWorld_ver2.py test Acc
+python ConvertWorld_ver3.py train/Bag Acc
+python ConvertWorld_ver3.py train/Hips Acc
+python ConvertWorld_ver3.py train/Torso Acc
+python ConvertWorld_ver3.py train/Hand Acc
+python ConvertWorld_ver3.py validation/Bag Acc
+python ConvertWorld_ver3.py validation/Hips Acc
+python ConvertWorld_ver3.py validation/Torso Acc
+python ConvertWorld_ver3.py validation/Hand Acc
+python ConvertWorld_ver3.py test Acc
+python ConvertWorld_ver2.py train/Bag Gyr
+python ConvertWorld_ver2.py train/Hips Gyr
+python ConvertWorld_ver2.py train/Torso Gyr
+python ConvertWorld_ver2.py train/Hand Gyr
+python ConvertWorld_ver2.py validation/Bag Gyr
+python ConvertWorld_ver2.py validation/Hips Gyr
+python ConvertWorld_ver2.py validation/Torso Gyr
+python ConvertWorld_ver2.py validation/Hand Gyr
+python ConvertWorld_ver2.py test Gyr
+python ConvertWorld_ver3.py train/Bag Gyr
+python ConvertWorld_ver3.py train/Hips Gyr
+python ConvertWorld_ver3.py train/Torso Gyr
+python ConvertWorld_ver3.py train/Hand Gyr
+python ConvertWorld_ver3.py validation/Bag Gyr
+python ConvertWorld_ver3.py validation/Hips Gyr
+python ConvertWorld_ver3.py validation/Torso Gyr
+python ConvertWorld_ver3.py validation/Hand Gyr
+python ConvertWorld_ver3.py test Gyr
+python ConvertWorld_ver2.py train/Bag Gra
+python ConvertWorld_ver2.py train/Hips Gra
+python ConvertWorld_ver2.py train/Torso Gra
+python ConvertWorld_ver2.py train/Hand Gra
+python ConvertWorld_ver2.py validation/Bag Gra
+python ConvertWorld_ver2.py validation/Hips Gra
+python ConvertWorld_ver2.py validation/Torso Gra
+python ConvertWorld_ver2.py validation/Hand Gra
+python ConvertWorld_ver2.py test Gra
+python ConvertWorld_ver3.py train/Bag Gra
+python ConvertWorld_ver3.py train/Hips Gra
+python ConvertWorld_ver3.py train/Torso Gra
+python ConvertWorld_ver3.py train/Hand Gra
+python ConvertWorld_ver3.py validation/Bag Gra
+python ConvertWorld_ver3.py validation/Hips Gra
+python ConvertWorld_ver3.py validation/Torso Gra
+python ConvertWorld_ver3.py validation/Hand Gra
+python ConvertWorld_ver3.py test Gra
